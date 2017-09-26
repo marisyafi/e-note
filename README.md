@@ -1,12 +1,12 @@
 ﻿## Description
 
-Here used [Admin LTE](https://almsaeedstudio.com/preview) Dashboard integrated with [Laravel](https://laravel.com/) Framework 5.2 and also included Laravel Authentication.
+Here used [Admin LTE](https://almsaeedstudio.com/preview) Dashboard integrated with [Laravel](https://laravel.com/) Framework 5.5 and also included Laravel Authentication.
 
 ## Installation Guide
 
 Step 1:
 ```
-git clone https://github.com/NinjaRasel/AdminLteWithLaravel.git
+git clone https://github.com/NinjaRasel/laravel-adminlte
 ```
 Step 2:
 
@@ -57,45 +57,34 @@ Step 4:
 ```
 php artisan key:generate
 ```
-- If any error occurs like as:
-
-> [ErrorException]                                                             
-  file_put_contents(/var/www/html/test/AdminLteWithLaravel/bootstrap/cache/se  
-  rvices.php): failed to open stream: No such file or directory
-
-Then create a directory named **cache** to – AdminLteWithLaravel/bootstrap/ and again run that given command.
  
 Step 5:
 ```
-php artisan migrate
+php artisan migrate:fresh --seed
 ```
+
 Step 6:
-```
-php artisan db:seed
-```
-Step 7:
 ```
 php artisan serve
 ```
 - Now run from browser – http://localhost:8000
 - Login Credential : 
 ```
-admin@test.com
+rasel@dev.com
 123456
 ```
-
 
 ## Contact
 
 **Md Rasel Ahmed**
 
-*Software Engineer* - [AppBajar](https://appbajar.com)
+*Leas Software Engineer*
 
 *Contact No*: +880 1521 224958
 
 *Email*: ninja.rasel@gmail.com
 
-*Facebook*: [facebook.com/ninja.rasel](https://facebook.com/ninja.rasel)
+*Facebook*: [facebook.com/NinjaRasel](https://facebook.com/ninja.rasel)
 
 *Web*: [rasel.ninja](http://rasel.ninja)
 
