@@ -78,7 +78,7 @@ rasel@dev.com
 
 **Md Rasel Ahmed**
 
-*Leas Software Engineer*
+*Lead Software Engineer*
 
 *Contact No*: +880 1521 224958
 
