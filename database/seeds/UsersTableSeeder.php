@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Seeder;
-
 use App\User;
+use Carbon\Carbon;
+use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,12 +13,37 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->delete();
+        $users = [
+            [
+                'name' => 'Rasel Ahmed',
+                'email' => 'rasel@dev.com',
+                'password' => bcrypt('123456'),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'name' => 'Wahid Akram',
+                'email' => 'wahid@dev.com',
+                'password' => bcrypt('123456'),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'name' => 'Shahidul Mamun',
+                'email' => 'shahidul@dev.com',
+                'password' => bcrypt('123456'),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'name' => 'Shadman Ahmed',
+                'email' => 'shadman@dev.com',
+                'password' => bcrypt('123456'),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]
+        ];
 
-        $user = new User();
-        $user->name = 'Md Rasel Ahmed';
-        $user->email = 'admin@test.com';
-        $user->password = bcrypt('123456');
-        $user->save();
+        User::insert($users);
     }
 }

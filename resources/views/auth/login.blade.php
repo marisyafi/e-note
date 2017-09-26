@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Md Rasel Ahmed
- * Date: 03-Aug-16
- * Time: 11:00 AM
+ * User: NinjaRasel
+ * Date: 25-Oct-17
+ * Time: 12:45 AM
  */
 ?>
 
@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Md Rasel Ahmed">
-    <title>Project Title | Log in</title>
+    <title>Foodart | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="{{ URL::asset('ap/dist/css/AdminLTE.min.css') }}">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{ URL::asset('ap/plugins/iCheck/square/blue.css') }}">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -35,48 +34,73 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        @if(Session::has('error'))
-            <h2 class="text-danger">{{Session::get('error')}}</h2>
-            {!! Session::forget('error') !!}
-        @endif
-        <a href="{{URL::to('/login')}}"><b>Project Title</b></a>
+        <a href="{{route('/')}}"><b>Food</b>Art</a>
     </div><!-- /.login-logo -->
+
     <div class="login-box-body">
-        {!! Form::open(array('url' => '/login', 'class' => 'form-horizontal')) !!}
-        {!! csrf_field() !!}
-        <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
-            <div class="col-md-12">
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
+        <p class="login-box-msg">Sign in to start your session</p>
+
+        <form action="{{ route('login') }}" method="post">
+            {{ csrf_field() }}
+            <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
+                <input type="email" class="form-control" placeholder="Email" name="email">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 @if ($errors->has('email'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
                 @endif
             </div>
-        </div>
-        <div class="form-group has-feedback {{ $errors->has('password') ? ' has-error' : '' }}">
-            <div class="col-md-12">
-                <input type="password" class="form-control" name="password" placeholder="password">
+            <div class="form-group has-feedback {{ $errors->has('password') ? ' has-error' : '' }}">
+                <input type="password" class="form-control" placeholder="Password" name="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 @if ($errors->has('password'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
                 @endif
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-6">
-                <button class="btn btn-info btn-block">Log In</button>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox"> Remember Me
+                        </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                </div>
+                <!-- /.col -->
             </div>
+        </form>
+
+        <div class="social-auth-links text-center">
+            <p>- OR -</p>
+            <a href="javascript:void(0)" class="btn btn-block btn-social btn-facebook btn-flat"><i
+                        class="fa fa-facebook"></i> Sign in
+                using
+                Facebook</a>
+            <a href="javascript:void(0)" class="btn btn-block btn-social btn-google btn-flat"><i
+                        class="fa fa-google-plus"></i> Sign in
+                using
+                Google+</a>
         </div>
-        {!! Form::close() !!}
-    </div><!-- /.login-box-body -->
-</div><!-- /.login-box -->
+        <!-- /.social-auth-links -->
+
+        <a href="javascript:void(0)">I forgot my password</a><br>
+        <a href="javascript:void(0)" class="text-center">Register a new membership</a>
+
+    </div>
+    <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+
 <!-- jQuery 2.1.4 -->
 <script src="{{ URL::asset('ap/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
 <!-- Bootstrap 3.3.5 -->
@@ -93,4 +117,3 @@
     });
 </script>
 </body>
-</html>

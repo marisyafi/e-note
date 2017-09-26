@@ -1,17 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Md Rasel Ahmed
- * Date: 03-Aug-16
- * Time: 11:00 AM
- */
 
 namespace App;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    use Notifiable;
+
     /**
      * The attributes that are mass assignable.
      *

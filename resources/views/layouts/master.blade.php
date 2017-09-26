@@ -1,11 +1,22 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Md Rasel Ahmed
- * Date: 03-Aug-16
- * Time: 11:00 AM
+ * User: FoodArt
+ * Date: 25-Oct-17
+ * Time: 12:50AM
  */
 ?>
+
+@php
+    $app_name_short='F';
+    $app_name_long='Food Art';
+
+    $admin_image= asset('ap/dist/img/avatar04.png');
+    $admin_name=Auth::user()->name;
+    $admin_email=Auth::user()->email;
+    $admin_designation='CoderBadge';
+    $admin_contact_no= '+8801521224958';
+@endphp
 
         <!DOCTYPE html>
 <html lang="en">
@@ -13,84 +24,41 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Md Rasel Ahmed">
+    <meta name="author" content="Food Art">
     <title>
-        Project Title - @yield('title')
+        FoodArt - @yield('title')
     </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    @yield('head_style')
-    @yield('head_script')
+    @include('layouts.partials.head_style')
+    @include('layouts.partials.head_script')
 </head>
 <!-- ADD THE CLASS layout-boxed TO GET A BOXED LAYOUT -->
-<body class="hold-transition skin-blue layout-boxed sidebar-mini">
+<body class="sidebar-mini skin-green">
 <div class="wrapper">
-    <header class="main-header">        <!-- Logo -->
-        <a href="{{ route('admin::dashboard') }}" class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>@yield('app_name_short')</b></span>
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>@yield('app_name_long')</b></span>
-        </a>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
-            <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only">Toggle navigation</span>
-            </a>
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    <!-- User Account: style can be found in dropdown.less -->
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="@yield('admin_image')" class="user-image" alt="User Image" style="width: 25px; height: 25px;">
-                            <span class="hidden-xs">@yield('admin_name')</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- User image -->
-                            <li class="user-header">
-                                <img src="@yield('admin_image')" class="img-circle" alt="User Image" style="width: 90px; height: 90px;">
-                                <p>
-                                    <small>Email: @yield('admin_email')</small>
-                                    <small>Company: @yield('admin_designation')</small>
-                                    <small>Contact: @yield('admin_contact_no')</small>
-                                </p>
-                            </li>
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sign out</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <!-- Left side column. contains the sidebar -->
+@include('layouts.partials.header')
+<!-- Left side column. contains the sidebar -->
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="@yield('admin_image')" class="img-circle" alt="User Image" style="width: 45px; height: 45px;">
+                    <img src={{$admin_image}} class="img-circle" alt="User Image"
+                         style="width: 45px; height: 45px;">
                 </div>
                 <div class="pull-left info">
-                    <p>@yield('admin_name')</p>
-                    <p>@yield('admin_email')</p>
+                    <p>{{$admin_name}}</p>
+                    <p>{{$admin_email}}</p>
                 </div>
             </div>
             <ul class="sidebar-menu">
                 <li class="treeview">
-                    <a href="{{ route('admin::dashboard') }}">
+                    <a href="{{ route('dashboard') }}">
                         <i class="fa fa-dashboard"></i> <span>Home</span>
                     </a>
                 </li>
-                @yield('sidebar_menu')
+                @include('layouts.partials.sidebar_menu')
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -103,7 +71,22 @@
                 @yield('content_header')
             </h1>
             <ol class="breadcrumb">
-                @yield('breadcrumb')
+                @if(isset($breadcrumb))
+                    @foreach($breadcrumb as $b)
+                        <li class="{{ $loop->last ? '' : 'active' }}">
+                            @if(isset($b['icon']))
+                                <i class="{{ $b['icon'] }}"></i>
+                            @endif
+                            @if(isset($b['href']))
+                                <a href="{{ $b['href'] }}">
+                                    {{ $b['name'] }}
+                                </a>
+                            @else
+                                {{ $b['name'] }}
+                            @endif
+                        </li>
+                    @endforeach
+                @endif
             </ol>
         </section>
         <!-- Main content -->
@@ -113,11 +96,11 @@
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
     <footer class="main-footer">
-        @yield('footer')
+        @include('layouts.partials.footer')
     </footer>
     <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 </div><!-- ./wrapper -->
-@yield('body_script')
+@include('layouts.partials.body_script')
 </body>
 </html>

@@ -1,63 +1,49 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Md Rasel Ahmed
- * Date: 03-Aug-16
- * Time: 11:00 AM
+ * User: NinjaRasel
+ * Date: 25-Oct-17
+ * Time: 12:45 AM
  */
 ?>
 
-@extends('layouts.master')
+@php
+    // write your breadcrumb here
+        $breadcrumb = [
+            [
+                'icon' => 'fa fa-home',
+                'href' => route('dashboard'),
+                'name' => 'Dashboard'
+            ],
+            [
+                'name' => 'Test'
+            ],
+        ];
+@endphp
 
-@section('title', 'Page Title')
+@extends('layouts.master', $breadcrumb)
+
+@section('title', 'Dashboard')
 
 @section('head_style')
-    @include('layouts.dashboard.head_style')
+    {{-- write your page css here--}}
 @endsection
 
 @section('head_script')
-    @include('layouts.dashboard.head_script')
-@endsection
-
-@section('app_name_short', 'R')
-@section('app_name_long', 'Project Title')
-
-@section('admin_image',  URL::asset('ap/dist/img/avatar04.png') )
-@section('admin_name', 'Rasel Ahmed')
-@section('admin_email', 'ninja.rasel@gmail.com')
-@section('admin_designation', 'Software Engineer')
-@section('admin_contact_no', '+8801521224958')
-
-@section('sidebar_menu')
-    @include('layouts.dashboard.sidebar_menu')
+    {{-- write your page scripts for head here --}}
 @endsection
 
 @section('content_header')
     Welcome
     <small>
-        Page Title
+        Sample page
     </small>
 @endsection
 
-@section('breadcrumb')
-    <li><a href="{{ route('admin::dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Test</a></li>
-    <li class="active">List</li>
-    <li></li>
-@endsection
-
-@section('small_box')
-    @include('layouts.dashboard.small_box')
-@endsection
-
 @section('page_content')
-
-@endsection
-
-@section('footer')
-    @include('layouts.dashboard.footer')
+    <h4>This is Test Content</h4>
 @endsection
 
 @section('body_script')
-    @include('layouts.dashboard.body_script')
+    {{-- wrtie your page java script here --}}
 @endsection
