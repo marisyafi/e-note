@@ -1,6 +1,6 @@
 ﻿## Description
 
-Here used [Admin LTE](https://almsaeedstudio.com/preview) Dashboard integrated with [Laravel](https://laravel.com/) Framework 5.5 and also included Laravel Authentication.
+Here used [Admin LTE](https://almsaeedstudio.com/preview) Dashboard integrated with [Laravel](https://laravel.com/) 5.5 and also included Laravel Authentication.
 
 ## Installation Guide
 
