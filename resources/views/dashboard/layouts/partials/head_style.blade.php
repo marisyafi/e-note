@@ -2,7 +2,7 @@
 /**
  * Created by PhpStorm.
  * User: NinjaRasel
- * Date: 03-Aug-16
+ * Date: 27-Aug-17
  * Time: 11:00 AM
  */
 ?>
@@ -31,7 +31,7 @@
 <!-- DataTables -->
 <link rel="stylesheet" href="{{ URL::asset('ap/plugins/datatables/dataTables.bootstrap.css') }}">
 <!-- Highlight -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css" rel="stylesheet" >
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css" rel="stylesheet">
 <!-- Font 4.2.0 -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <!-- BootstrapToggle -->

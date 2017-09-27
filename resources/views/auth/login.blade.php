@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: NinjaRasel
- * Date: 25-Oct-17
- * Time: 12:45 AM
+ * Date: 27-Aug-17
+ * Time: 11:00 AM
  */
 ?>
 
@@ -13,8 +13,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Md Rasel Ahmed">
-    <title>Foodart | Log in</title>
+    <meta name="author" content="NinjaRasel">
+    <title>CoderBadge | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -38,12 +38,10 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{route('/')}}"><b>Food</b>Art</a>
+        <a href="{{route('/')}}"><b>Coder</b>Badge</a>
     </div><!-- /.login-logo -->
-
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
-
         <form action="{{ route('login') }}" method="post">
             {{ csrf_field() }}
             <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
@@ -79,7 +77,6 @@
                 <!-- /.col -->
             </div>
         </form>
-
         <div class="social-auth-links text-center">
             <p>- OR -</p>
             <a href="javascript:void(0)" class="btn btn-block btn-social btn-facebook btn-flat"><i
@@ -92,7 +89,6 @@
                 Google+</a>
         </div>
         <!-- /.social-auth-links -->
-
         <a href="javascript:void(0)">I forgot my password</a><br>
         <a href="javascript:void(0)" class="text-center">Register a new membership</a>
 

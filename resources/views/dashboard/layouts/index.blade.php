@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: FoodArt
- * Date: 25-Oct-17
- * Time: 12:45 AM
+ * User: NinjaRasel
+ * Date: 27-Aug-17
+ * Time: 11:00 AM
  */
 ?>
 
@@ -17,7 +17,7 @@
     ];
 @endphp
 
-@extends('layouts.master', $breadcrumb)
+@extends('dashboard.layouts.master', $breadcrumb)
 
 @section('title', 'Dashboard')
 
@@ -28,10 +28,7 @@
     </small>
 @endsection
 
-@section('small_box')
-    @include('layouts.partials.small_box')
-@endsection
-
 @section('page_content')
+    @include('dashboard.layouts.partials.small_box')
     <h4>Test Content</h4>
 @endsection
