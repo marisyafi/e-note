@@ -9,7 +9,7 @@
 
 <!-- User Account: style can be found in dropdown.less -->
 <li class="dropdown user user-menu">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
         <img src={{$admin_image}} class="user-image" alt="User Image"
              style="width: 25px; height: 25px;">
         <span class="hidden-xs">{{$admin_name}}</span>

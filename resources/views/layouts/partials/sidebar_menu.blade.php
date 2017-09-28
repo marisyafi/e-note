@@ -14,8 +14,8 @@
             <i class="fa fa-dashboard"></i> <span>Home</span>
         </a>
     </li>
-    <li class="treeview menu-open">
-        <a href="#">
+    <li class="treeview">
+        <a href="javascript:void(0)">
             <i class="fa fa-th"></i>
             <span>Menu</span>
             <span class="pull-right-container">
